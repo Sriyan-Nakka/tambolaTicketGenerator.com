@@ -10,10 +10,30 @@
     />
     <title>Tambola Ticket Generator</title>
     <style>
+      @font-face {
+        font-family: "headFont";
+        src: url("fonts/ConcertOne-Regular.woff2") format("woff2"),
+          url("fonts/ConcertOne-Regular.woff") format("woff");
+      }
+      @font-face {
+        font-family: "bodyFont";
+        src: url("fonts/Karla-Regular.woff2") format("woff2"),
+          url("fonts/Karla-Regular.woff") format("woff");
+      }
+
+      * {
+        --main-bg: hsl(233, 18%, 10%);
+        --ticket-bg: hsl(225, 24%, 15%);
+        --text-color: hsl(220, 13%, 90%);
+        --head-color: hsl(142, 71%, 45%);
+        --head-underline: hsl(142, 71%, 30%);
+        --button-bg: hsl(217, 91%, 60%);
+        --btn-hover-bg: hsl(217, 91%, 45%);
+      }
+
       .icon {
         width: 40px;
         margin: 0.5rem;
-        background-color: black;
         transition: all 0.2s ease-in-out;
       }
       .icon:hover {
@@ -22,14 +42,16 @@
       }
       body {
         font-size: 62.5%;
-        background-color: black;
-        color: white;
+        background-color: var(--main-bg);
+        color: var(--text-color);
         font-size: 1.6rem;
         text-align: center;
+        font-family: bodyFont, sans-serif;
       }
       footer {
         font-size: 1.25rem;
         padding: 0.5rem;
+        font-weight: bold;
       }
       footer a {
         text-decoration: none;
@@ -48,34 +70,57 @@
         margin-top: 15px;
       }
       button {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         transition: all 0.2s ease-in-out;
+        font-family: headFont, sans-serif;
+        background-color: var(--button-bg);
+        border: none;
+        border-radius: 5px;
       }
       @media (pointer: fine) and (min-width: 1024px) {
         button:hover {
           transform: scale(1.1);
+          border: 1px solid white;
+          color: var(--text-color);
+          background-color: var(--btn-hover-bg);
         }
       }
       header h1 {
         margin-top: 15px;
         margin-bottom: 10px;
         text-decoration: underline;
+        text-decoration-color: var(--head-underline);
+        font-family: headFont, sans-serif;
+        color: var(--head-color);
+      }
+      header span {
+        font-weight: bold;
       }
       td,
       table {
-        border: 3px solid gray;
+        border: 3px solid white;
         border-collapse: collapse;
         text-align: center;
       }
+      table {
+        table-layout: fixed;
+        width: 520px;
+        background-color: var(--ticket-bg);
+      }
       th {
-        padding: 10px;
-        /* font-weight: normal; */
+        padding: 7px;
+        font-family: headFont, sans-serif;
+        font-weight: normal;
+        font-size: 1.75rem;
       }
       td {
         padding: 5px;
       }
       #generateDiv {
         margin-top: 10px;
+      }
+      #ticketDiv {
+        display: none;
       }
     </style>
   </head>
@@ -94,15 +139,15 @@
               <th colspan="9"><center>Sriyan Sites Tambola Ticket</center></th>
             </tr>
             <tr>
-              <td id="r1c1">1</td>
-              <td id="r1c2">2</td>
-              <td id="r1c3">3</td>
-              <td id="r1c4">4</td>
-              <td id="r1c5">5</td>
-              <td id="r1c6">6</td>
-              <td id="r1c7">7</td>
-              <td id="r1c8">8</td>
-              <td id="r1c9">9</td>
+              <td id="r1c1">0</td>
+              <td id="r1c2">0</td>
+              <td id="r1c3">0</td>
+              <td id="r1c4">0</td>
+              <td id="r1c5">0</td>
+              <td id="r1c6">0</td>
+              <td id="r1c7">0</td>
+              <td id="r1c8">0</td>
+              <td id="r1c9">0</td>
             </tr>
             <tr>
               <td id="r2c1">1</td>
@@ -164,7 +209,7 @@
         </a>
         <br />
         &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-        <br />Version 0.3 <br />
+        <br />Version 0.9 <br />
       </center>
     </footer>
   </body>
