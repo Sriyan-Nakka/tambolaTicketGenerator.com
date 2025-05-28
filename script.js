@@ -1,4 +1,18 @@
+let css = "";
+let prevStyles = [];
+
 function generateTambolaTicket() {
+  prevStyles.forEach((s) => document.head.removeChild(s));
+  prevStyles = [];
+
+  for (let row = 1; row <= 3; row++) {
+    for (let column = 1; column <= 9; column++) {
+      let cell = document.getElementById(`r${row}c${column}`);
+      if (cell) cell.classList.remove("marked");
+      cell.removeEventListener("click", marked);
+    }
+  }
+
   let row1Placement = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   let row2Placement = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   let row3Placement = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -46,7 +60,6 @@ function generateTambolaTicket() {
   for (let i = 0; i < 100; i++) {
     let a = Math.floor(Math.random() * numbers.length);
     let b = Math.floor(Math.random() * numbers.length);
-
     let temp = numbers[a];
     numbers[a] = numbers[b];
     numbers[b] = temp;
@@ -55,7 +68,6 @@ function generateTambolaTicket() {
   for (let j = 0; j < 25; j++) {
     let a = Math.floor(Math.random() * row1Placement.length);
     let b = Math.floor(Math.random() * row1Placement.length);
-
     let temp = row1Placement[a];
     row1Placement[a] = row1Placement[b];
     row1Placement[b] = temp;
@@ -64,7 +76,6 @@ function generateTambolaTicket() {
   for (let k = 0; k < 25; k++) {
     let a = Math.floor(Math.random() * row2Placement.length);
     let b = Math.floor(Math.random() * row2Placement.length);
-
     let temp = row2Placement[a];
     row2Placement[a] = row2Placement[b];
     row2Placement[b] = temp;
@@ -73,7 +84,6 @@ function generateTambolaTicket() {
   for (let l = 0; l < 25; l++) {
     let a = Math.floor(Math.random() * row3Placement.length);
     let b = Math.floor(Math.random() * row3Placement.length);
-
     let temp = row3Placement[a];
     row3Placement[a] = row3Placement[b];
     row3Placement[b] = temp;
@@ -82,16 +92,67 @@ function generateTambolaTicket() {
   for (let row1Num = 0; row1Num <= 4; row1Num++) {
     document.getElementById(`r1c${row1Placement[row1Num]}`).textContent =
       numbers[row1Num];
+    css = `
+    @media (pointer: fine) and (min-width: 1024px) {
+      #r1c${row1Placement[row1Num]}:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+  }
+    `;
+    style = document.createElement("style");
+    style.textContent = css;
+    document.head.appendChild(style);
+    prevStyles.push(style);
+
+    document
+      .getElementById(`r1c${row1Placement[row1Num]}`)
+      .addEventListener("click", marked);
   }
 
   for (let row2Num = 0; row2Num <= 4; row2Num++) {
     document.getElementById(`r2c${row2Placement[row2Num]}`).textContent =
       numbers[5 + row2Num];
+    css = `
+    @media (pointer: fine) and (min-width: 1024px) {
+      #r2c${row2Placement[row2Num]}:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+  }
+    `;
+    style = document.createElement("style");
+    style.textContent = css;
+    document.head.appendChild(style);
+    prevStyles.push(style);
+
+    document
+      .getElementById(`r2c${row2Placement[row2Num]}`)
+      .addEventListener("click", marked);
   }
 
   for (let row3Num = 0; row3Num <= 4; row3Num++) {
     document.getElementById(`r3c${row3Placement[row3Num]}`).textContent =
       numbers[10 + row3Num];
+    css = `
+    @media (pointer: fine) and (min-width: 1024px) {
+      #r3c${row3Placement[row3Num]}:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+  }
+    `;
+    style = document.createElement("style");
+    style.textContent = css;
+    document.head.appendChild(style);
+    prevStyles.push(style);
+
+    document
+      .getElementById(`r3c${row3Placement[row3Num]}`)
+      .addEventListener("click", marked);
   }
 }
 
@@ -100,3 +161,7 @@ document.addEventListener("keyup", (e) => {
     generateTambolaTicket();
   }
 });
+
+function marked(event) {
+  event.currentTarget.classList.toggle("marked");
+}
