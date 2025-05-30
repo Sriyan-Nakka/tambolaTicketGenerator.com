@@ -39,7 +39,7 @@
       }
       .icon:hover {
         cursor: pointer;
-        transform: scale(1.25);
+        transform: scale(1.3);
       }
       body {
         font-size: 62.5%;
@@ -70,7 +70,7 @@
         margin-bottom: 5px;
         margin-top: 15px;
       }
-      button {
+      button#generateButton {
         font-size: 1.25rem;
         transition: all 0.2s ease-in-out;
         font-family: headFont, sans-serif;
@@ -78,12 +78,28 @@
         border: none;
         border-radius: 5px;
       }
+      #numGenerateButton {
+        margin-top: 10px;
+        padding: 5px;
+        font-size: 1.25rem;
+        background-color: hsl(0, 75%, 55%);
+        border: none;
+        border-radius: 5px;
+        font-family: bodyFont, sans-serif;
+        font-weight: bold;
+        transition: all 0.15s ease-in-out;
+      }
       @media (pointer: fine) and (min-width: 1024px) {
-        button:hover {
+        button#generateButton:hover {
           transform: scale(1.1);
           border: 1px solid white;
           color: var(--text-color);
           background-color: var(--btn-hover-bg);
+        }
+        button#numGenerateButton:hover {
+          transform: scale(1.15);
+          color: var(--text-color);
+          background-color: hsl(0, 75%, 45%);
         }
       }
       header h1 {
@@ -125,6 +141,7 @@
       }
       #ticketDiv {
         display: none;
+        margin-top: 10px;
       }
       #ticketDiv div {
         margin: 10px;
@@ -132,6 +149,33 @@
       .marked {
         background-color: hsl(0, 0%, 40%);
         color: white;
+      }
+      #tambolaNums {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0px;
+      }
+      .number {
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 5px;
+        width: 40px;
+        font-weight: bold;
+      }
+      #tambolaSpan {
+        display: none;
+      }
+      #recentMarkedNum {
+        font-size: 1.8rem;
+        border-radius: 5px;
+        background-color: hsla(142, 90%, 15%, 0.4);
+        width: 50px;
+        padding: 3px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px solid var(--head-underline);
+        font-weight: bold;
       }
     </style>
   </head>
@@ -144,6 +188,7 @@
     <hr />
     <main>
       <center>
+        Landscape mode recommended for mobile devices.
         <div id="ticketDiv">
           <table>
             <tr>
@@ -183,7 +228,108 @@
               <td id="r3c9">9</td>
             </tr>
           </table>
-          <div>(Tambola Number Generator Coming Soon)</div>
+          <div>
+            If your device was chosen to call numbers, <br />
+            <button id="numGenerateButton" onclick="generateMarkingNum()">
+              Generate calling number
+            </button>
+          </div>
+          <span id="tambolaSpan">
+            Most recent number called:
+            <p id="recentMarkedNum"></p>
+            <div id="tambolaNums">
+              <div class="number" id="num1">1</div>
+              <div class="number" id="num2">2</div>
+              <div class="number" id="num3">3</div>
+              <div class="number" id="num4">4</div>
+              <div class="number" id="num5">5</div>
+              <div class="number" id="num6">6</div>
+              <div class="number" id="num7">7</div>
+              <div class="number" id="num8">8</div>
+              <div class="number" id="num9">9</div>
+              <div class="number" id="num10">10</div>
+              <div class="number" id="num11">11</div>
+              <div class="number" id="num12">12</div>
+              <div class="number" id="num13">13</div>
+              <div class="number" id="num14">14</div>
+              <div class="number" id="num15">15</div>
+              <div class="number" id="num16">16</div>
+              <div class="number" id="num17">17</div>
+              <div class="number" id="num18">18</div>
+              <div class="number" id="num19">19</div>
+              <div class="number" id="num20">20</div>
+              <div class="number" id="num21">21</div>
+              <div class="number" id="num22">22</div>
+              <div class="number" id="num23">23</div>
+              <div class="number" id="num24">24</div>
+              <div class="number" id="num25">25</div>
+              <div class="number" id="num26">26</div>
+              <div class="number" id="num27">27</div>
+              <div class="number" id="num28">28</div>
+              <div class="number" id="num29">29</div>
+              <div class="number" id="num30">30</div>
+              <div class="number" id="num31">31</div>
+              <div class="number" id="num32">32</div>
+              <div class="number" id="num33">33</div>
+              <div class="number" id="num34">34</div>
+              <div class="number" id="num35">35</div>
+              <div class="number" id="num36">36</div>
+              <div class="number" id="num37">37</div>
+              <div class="number" id="num38">38</div>
+              <div class="number" id="num39">39</div>
+              <div class="number" id="num40">40</div>
+              <div class="number" id="num41">41</div>
+              <div class="number" id="num42">42</div>
+              <div class="number" id="num43">43</div>
+              <div class="number" id="num44">44</div>
+              <div class="number" id="num45">45</div>
+              <div class="number" id="num46">46</div>
+              <div class="number" id="num47">47</div>
+              <div class="number" id="num48">48</div>
+              <div class="number" id="num49">49</div>
+              <div class="number" id="num50">50</div>
+              <div class="number" id="num51">51</div>
+              <div class="number" id="num52">52</div>
+              <div class="number" id="num53">53</div>
+              <div class="number" id="num54">54</div>
+              <div class="number" id="num55">55</div>
+              <div class="number" id="num56">56</div>
+              <div class="number" id="num57">57</div>
+              <div class="number" id="num58">58</div>
+              <div class="number" id="num59">59</div>
+              <div class="number" id="num60">60</div>
+              <div class="number" id="num61">61</div>
+              <div class="number" id="num62">62</div>
+              <div class="number" id="num63">63</div>
+              <div class="number" id="num64">64</div>
+              <div class="number" id="num65">65</div>
+              <div class="number" id="num66">66</div>
+              <div class="number" id="num67">67</div>
+              <div class="number" id="num68">68</div>
+              <div class="number" id="num69">69</div>
+              <div class="number" id="num70">70</div>
+              <div class="number" id="num71">71</div>
+              <div class="number" id="num72">72</div>
+              <div class="number" id="num73">73</div>
+              <div class="number" id="num74">74</div>
+              <div class="number" id="num75">75</div>
+              <div class="number" id="num76">76</div>
+              <div class="number" id="num77">77</div>
+              <div class="number" id="num78">78</div>
+              <div class="number" id="num79">79</div>
+              <div class="number" id="num80">80</div>
+              <div class="number" id="num81">81</div>
+              <div class="number" id="num82">82</div>
+              <div class="number" id="num83">83</div>
+              <div class="number" id="num84">84</div>
+              <div class="number" id="num85">85</div>
+              <div class="number" id="num86">86</div>
+              <div class="number" id="num87">87</div>
+              <div class="number" id="num88">88</div>
+              <div class="number" id="num89">89</div>
+              <div class="number" id="num90">90</div>
+            </div>
+          </span>
         </div>
       </center>
       <div id="generateDiv">
@@ -221,7 +367,7 @@
         </a>
         <br />
         &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-        <br />Version 1.06 <br />
+        <br />Version 1.1 <br />
       </center>
     </footer>
   </body>
